@@ -40,11 +40,33 @@ Currently, the tournament presents the following difficulties:
 Design and implement a web platform that enables the organized, centralized, and transparent management of the semester soccer tournament
 for the Systems Engineering, Artificial Intelligence, Cybersecurity, and Statistics programs.
 
-## Team
+## Teams
 
-- Ángela Sofía Gómez Valencia
-- Paula Valentina Lozano Castañeda
-- Samuel Felipe Castelblanco Tellez
-- Tomas Olaya Diaz
-- Juan Diego Patiño Muñoz
+### Alpine
 
+- Juan Bogotá
+- Juan Pablo Vélez
+- Kevin Segura
+- Cristian González
+- Rafael Moreno
+
+### FERRARI
+
+- Roger Durán
+- Camilo León
+- Daniel Ahumada
+- Juan Camilo Torres
+- Juan Neira
+
+### RedBull
+- Diego Ortiz
+- Julio Mallorquín
+- Sofia García
+- Leonardo Peña
+
+### Mercedes Benz
+- Ángela Gómez
+- Paula Lozano
+- Samuel Castelblanco
+- Tomas Olaya
+- Juan Patiño Muñoz
