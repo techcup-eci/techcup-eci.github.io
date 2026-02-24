@@ -64,25 +64,25 @@ responsibilities within the tournament management process.
 
 | Functionality                | Participant| Captain| Organizer | Referee | Administrator |
 |------------------------------|------------|--------|-----------|---------|---------------|
-| Register account             | ✓          | ✓      | ✓         | ✓       | ✓             |
-| Log in to platform           | ✓          | ✓      | ✓         | ✓       | ✓             |
-| Create sports profile        | ✓          | ✓      |           |         |               |
-| Set availability as player   | ✓          | ✓      |           |         |               |
-| Respond to invitations       | ✓          | ✓      |           |         |               |
-| View tournament information  | ✓          | ✓      | ✓         | ✓       | ✓             |
-| Create team                  |            | ✓      |           |         |               |
-| Configure team               |            | ✓      |           |         |               |
-| Search players               |            | ✓      |           |         |               |
-| Invite players               |            | ✓      |           |         |               |
-| Upload payment proof         |            | ✓      |           |         |               |
-| Define team lineup           |            | ✓      |           |         |               |
-| Create tournament            |            |        | ✓         |         |               |
-| Configure tournament         |            |        | ✓         |         |               |
-| Review payment proofs        |            |        | ✓         |         |               |
-| Register match results       |            |        | ✓         |         |               |
-| View assigned matches        |            |        |           | ✓       |               |
-| Manage roles and permissions |            |        |           |         | ✓             |
-| Monitor audit logs           |            |        |           |         | ✓             |
+| Register account             | x          | x      | x         | x       | x             |
+| Log in to platform           | x          | x      | x         | x       | x             |
+| Create sports profile        | x          | x      |           |         |               |
+| Set availability as player   | x          | x      |           |         |               |
+| Respond to invitations       | x          | x      |           |         |               |
+| View tournament information  | x          | x      | x         | x       | x             |
+| Create team                  |            | x      |           |         |               |
+| Configure team               |            | x      |           |         |               |
+| Search players               |            | x      |           |         |               |
+| Invite players               |            | x      |           |         |               |
+| Upload payment proof         |            | x      |           |         |               |
+| Define team lineup           |            | x      |           |         |               |
+| Create tournament            |            |        | x         |         |               |
+| Configure tournament         |            |        | x         |         |               |
+| Review payment proofs        |            |        | x         |         |               |
+| Register match results       |            |        | x         |         |               |
+| View assigned matches        |            |        |           | x       |               |
+| Manage roles and permissions |            |        |           |         | x             |
+| Monitor audit logs           |            |        |           |         | x             |
 
 
 ## Use case diagrams
