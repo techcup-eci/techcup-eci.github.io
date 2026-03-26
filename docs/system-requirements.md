@@ -24,12 +24,12 @@ Below is the list of all requirements classified according to their type.
 | FR-07 | Player search | Teams |
 | FR-08 | Team invitation management | Teams |
 | FR-09 | Team membership validation | Teams |
-| FR-10 | Payment receipt upload | **Tournament** |
-| FR-11 | Payment validation | **Tournament** |
-| FR-12 | Tournament creation | **Tournament** |
-| FR-13 | Tournament configuration | **Tournament** |
-| FR-14 | Tournament lifecycle management | **Tournament** |
-| FR-15 | Tournament registration cancellation | **Tournament** |
+| FR-10 | Payment receipt upload | Tournament |
+| FR-11 | Payment validation | Tournament |
+| FR-12 | Tournament creation | Tournament |
+| FR-13 | Tournament configuration | Tournament |
+| FR-14 | Tournament lifecycle management | Tournament |
+| FR-15 | Tournament registration cancellation | Tournament |
 | FR-16 | Team lineup management | Competition |
 | FR-17 | Opponent lineup consultation | Competition |
 | FR-18 | Match result registration | Competition |
