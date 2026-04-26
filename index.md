@@ -42,31 +42,22 @@ for the Systems Engineering, Artificial Intelligence, Cybersecurity, and Statist
 
 ## Teams
 
-### Alpine
-
-- Juan Bogotá
-- Juan Pablo Vélez
-- Kevin Segura
-- Cristian González
-- Rafael Moreno
-
-### FERRARI
-
-- Roger Durán
+- Ángela Gómez
 - Camilo León
+- Cristian González
 - Daniel Ahumada
+- Diego Ortiz
+- Juan Bogotá
 - Juan Camilo Torres
 - Juan Neira
-
-### RedBull
-- Diego Ortiz
-- Julio Mallorquín
-- Sofia García
-- Leonardo Peña
-
-### Mercedes Benz
-- Ángela Gómez
-- Paula Lozano
-- Samuel Castelblanco
-- Tomas Olaya
+- Juan Pablo Vélez
 - Juan Patiño Muñoz
+- Julio Mallorquín
+- Kevin Segura
+- Leonardo Peña
+- Paula Lozano
+- Rafael Moreno
+- Roger Durán
+- Samuel Castelblanco
+- Sofia García
+- Tomas Olaya

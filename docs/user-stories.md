@@ -3,8 +3,6 @@ layout: default
 title: User Stories
 ---
 
-## Traceability matrix
-
 | User Story | Functional Requirement |
 |------------|------------------------|
 | US-01 | FR-01 |
