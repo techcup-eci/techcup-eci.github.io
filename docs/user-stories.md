@@ -27,7 +27,7 @@ title: User Stories
 
 ## Links between user stories and funtional and/or non-functional requirements
 
-Here we present the user stories defined by our team. Each user story is linked with at leat one functional requirement.
+THere are the different user stories for all the teams in the F1 race. Each user story is linked with at leat one functional requirement.
 
 ## US-01 - Register account
 
