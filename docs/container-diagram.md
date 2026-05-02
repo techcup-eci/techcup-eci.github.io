@@ -3,7 +3,7 @@ layout: default
 title: Container diagram 
 ---
 
-<img width="800" height="400" alt="Context-diagram" src="/assets/images/context/container_diagram.png"/>
+<img width="800" height="280" alt="Context-diagram" src="/assets/images/context/container_diagram.png"/>
 
 ## Container diagram (C4) description
 
