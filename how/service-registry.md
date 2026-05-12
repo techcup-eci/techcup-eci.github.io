@@ -54,3 +54,14 @@ ORDER-SERVICE → \[`10.0.0.3:9090`\]
 
 Eureka removes the need for hardcoded service locations and replaces
 them with dynamic discovery using service names.
+
+---
+---
+
+<img width="800" height="300" alt="Context-diagram" src="/assets/images/service-reg/ejemplo-1.png"/>
+
+This is an example on how eureka is recognizing `tournament-service` micro service at port `8080`. Here
+we can see what services are active and running and how many instances of them there are.
+
+Hopefully, when we get the Azure thing working, all microservices will be connected here so we can track
+them :)
