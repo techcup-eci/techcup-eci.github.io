@@ -26,10 +26,14 @@ This section explains how the tournament micro service has been done along the w
 ### Build Plugin
 - **spring-boot-maven-plugin** – Packages the app as a runnable fat JAR containing all dependencies (`java -jar tournament-service.jar`).
 
-## Diagram & JPA
+## Diagrams & JPA
 
-The diagram we use for the `JPA` is the following
-<img alt="Context-diagram" src="/assets/images/tournament-ms/schema.png"/>
+The class diagram was used for the `models` is the following
+<img alt="Class-diagram" src="/assets/images/tournament-ms/class_diagram.png"/>
+
+
+Also, the entity-relation diagram we used for the `JPA` is the following
+<img alt="jpa-diagram" src="/assets/images/tournament-ms/entity-relation-diagram.png"/>
 
 The entities we defined were:
 - audit logs
