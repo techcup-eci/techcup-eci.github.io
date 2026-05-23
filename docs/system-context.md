@@ -3,7 +3,7 @@ layout: default
 title: System context
 ---
 
-<img width="800" height="800" alt="Context-diagram" src="/assets/images/context/context_diagram_mermaid.png"/>
+<img width="800" height="800" alt="Context-diagram" src="/assets/images/context/context_diagram.png"/>
 
 ## Context diagram description
 

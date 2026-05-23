@@ -186,3 +186,4 @@ The API Gateway injects user information headers (`X-User-Id`, `X-User-Role`, `X
 PENDING ──► ACCEPTED
     │
     └──► REJECTED
+    ```
