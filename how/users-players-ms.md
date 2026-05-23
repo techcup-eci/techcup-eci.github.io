@@ -46,9 +46,11 @@ This section explains how the **Users & Players Service** was built and how it f
 
 The class diagram used for the models is the following:
 
-![Class diagram](../images/Diagrama%20de%20contexto%20Users%20and%20Players.png)
+![Class diagram](../images/users-ms/context-diagram-users.png)
 
 The container diagram used for the architecture is the following:
+
+![alt text](context-diagram-users.png)
 
 ![Container diagram](../images/Diagrama%20contenedores%20Usuers%20and%20Players.png)
 
@@ -197,3 +199,4 @@ PENDING ──► ACCEPTED
    └──► REJECTED
    │
    └──► CANCELED
+   ```
