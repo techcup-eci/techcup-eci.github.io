@@ -46,11 +46,11 @@ This section explains how the **Teams Service** was built and how it fits into t
 
 The class diagram used for the models is the following:
 
-![Class diagram](/assets/images/teams-ms/class_diagram.png)
+![Class diagram](/assets/images/teams-ms/class-diagram-teams.png)
 
 The entity-relation diagram used for JPA is the following:
 
-![Entity-relation diagram](/assets/images/teams-ms/entity-relation-diagram.png)
+![Entity-relation diagram](/assets/images/teams-ms/relation-entity-teams.png)
 
 The entities defined for this service are:
 
