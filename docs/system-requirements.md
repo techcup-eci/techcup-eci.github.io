@@ -24,6 +24,7 @@ Below is the list of all requirements classified according to their type.
 | FR-07 | Player search | Teams |
 | FR-08 | Team invitation management | Teams |
 | FR-09 | Team membership validation | Teams |
+| FR-10 | Register Team in Tournament | Tournament | 
 | FR-10 | Payment receipt upload | Tournament |
 | FR-11 | Payment validation | Tournament |
 | FR-12 | Tournament creation | Tournament |
@@ -179,6 +180,20 @@ Below is the list of all requirements classified according to their type.
 | **Main flow** | 1. The participant accepts a team invitation. <br>2. The system verifies the participant does not already belong to another team. <br>3. The system validates roster size limits and jersey number uniqueness. <br>4. The system confirms or rejects the membership accordingly. |
 | **Use case diagram** | <img width="598" height="219" alt="image" src="/assets/images/sysreq/9.png" /> |
 | **Postconditions** | *The participant is successfully added to the team or the system prevents the action if validation rules are not met.* |
+
+
+ ## FR-10 - Register team in tournament
+| Field | Description |
+|------|-------------|
+| **ID**                  | US-07                                                                                         |
+| **Title**               | Register team in tournament                                                                   |
+| **Description**         | AS a captain I WANT to register my already-formed team in an active tournament by submitting a payment proof SO THAT the organizer can review and approve our participation. |
+| **Priority**            | High                                                                                          |
+| **Priority explanation**| Team registration is the gateway to tournament participation: without approved registrations, no bracket or matches can be generated. |
+| **Related requirement(s)** | FR-07 Team registration management                                                        |
+| **Requirement explanation** | Registration management allows captains to enroll their teams in active tournaments and gives organizers full control over part/option through an approval workflow. |
+| **Acceptance criteria** | - The captain can register a team only when the tournament is ACTIVE. <br> - The system rejects registration if the deadline has passed. <br> - The system prevents duplicate registrations for the same team. <br> - The system enforces the maximum team capacity per tournament. <br> - The organizer can approve or reject a pending registration. <br> - The captain can cancel the registration while UNDER REVIEW. <br> - All registration actions are recorded in the audit log. |
+
 
 ## FR-10 - Payment receipt upload
 
