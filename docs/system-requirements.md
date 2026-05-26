@@ -362,6 +362,52 @@ Below is the list of all requirements classified according to their type.
 | **Use case diagram** | <img width="664" height="170" alt="image" src="/assets/images/sysreq/22.png" /> |
 | **Postconditions** | *The requested tournament statistics are displayed to the user.* |
 
+## FR-23 - User logout
+
+| Field | Description |
+|------|-------------|
+| **ID** | FR-23 |
+| **Requirement name** | User logout |
+| **Microservice** | Identity |
+| **Description** | The system must allow authenticated users to securely log out from the platform. Upon logout, the system must invalidate the session on the client side and register the logout event in the audit log. |
+| **Preconditions** | The user must be authenticated with a valid JWT token. |
+| **Actor** | Participant, Captain, Organizer, Referee, Administrator |
+| **Main flow** | 1. The actor selects the logout option.<br>2. The system registers the logout action in the audit log.<br>3. The frontend removes the stored JWT token.<br>4. The user is redirected to the login page. |
+| **Use case diagram** | Not applicable for this requirement. |
+| **Postconditions** | The user session is terminated and protected resources cannot be accessed without re-authentication. |
+
+---
+
+## FR-24 - Authenticated user consultation
+
+| Field | Description |
+|------|-------------|
+| **ID** | FR-24 |
+| **Requirement name** | Authenticated user consultation |
+| **Microservice** | Identity |
+| **Description** | The system must allow authenticated users to consult their own identity information (email and role) using a protected endpoint. This functionality is used by the frontend to restore sessions after page reload. |
+| **Preconditions** | The user must be authenticated with a valid JWT token. |
+| **Actor** | Participant, Captain, Organizer, Referee, Administrator |
+| **Main flow** | 1. The actor sends a request to the protected endpoint.<br>2. The API Gateway validates the JWT token.<br>3. The Identity service extracts the user information from the token.<br>4. The system returns the authenticated user's identity data. |
+| **Use case diagram** | Not applicable for this requirement. |
+| **Postconditions** | The authenticated user information is returned securely. |
+
+---
+
+## FR-25 - Role management by administrator
+
+| Field | Description |
+|------|-------------|
+| **ID** | FR-25 |
+| **Requirement name** | Role management by administrator |
+| **Microservice** | Identity |
+| **Description** | The system must allow administrators to update the role assigned to a user. The administrator may assign or change roles except the administrator role itself, which cannot be granted dynamically. |
+| **Preconditions** | The administrator must be authenticated. The target user must exist in the system. |
+| **Actor** | Administrator |
+| **Main flow** | 1. The administrator accesses the user management section.<br>2. The administrator selects a user.<br>3. The administrator assigns a new role.<br>4. The system validates role change permissions.<br>5. The system updates the user's role and registers the action in the audit log. |
+| **Use case diagram** | Not applicable for this requirement. |
+| **Postconditions** | The user's role is updated according to administrator permissions. |
+
 
 ## NFR-01 - Role-based access control
 
@@ -492,3 +538,61 @@ Below is the list of all requirements classified according to their type.
 | **Main Flow** | 1. A user attempts to access a system resource. <br>2. The API Gateway validates the JWT token (format and expiration). <br>3. The Identity service checks the user's role and permissions. <br>4. The system allows or denies access accordingly. |
 | **Use Case Diagram** | *Not applicable for this requirement.* |
 | **Postconditions** | *System resources remain protected and only authorized users can access restricted functionalities.* |
+
+## NFR-11 - JWT token management
+
+| Field | Description |
+|------|-------------|
+| **ID** | NFR-11 |
+| **Requirement Name** | JWT token management |
+| **Description** | The system must use JWT tokens for stateless authentication. Tokens must include user email, role, and expiration time. Tokens must be validated at the API Gateway before forwarding requests to microservices. |
+| **Preconditions** | Users must be authenticated and possess a valid JWT token. |
+| **Actor** | System |
+| **Main Flow** | 1. A user authenticates successfully.<br>2. The Identity service generates a signed JWT token.<br>3. The frontend stores the token securely.<br>4. The API Gateway validates the token for every protected request. |
+| **Use Case Diagram** | Not applicable for this requirement. |
+| **Postconditions** | Authentication is stateless and secure across microservices. |
+
+---
+
+## NFR-12 - API Gateway routing and validation
+
+| Field | Description |
+|------|-------------|
+| **ID** | NFR-12 |
+| **Requirement Name** | API Gateway routing and validation |
+| **Description** | The system must centralize all external access through an API Gateway (Orchestrator). The gateway must route requests to the appropriate microservice and validate JWT tokens before granting access to protected endpoints. |
+| **Preconditions** | The API Gateway must be deployed and configured. |
+| **Actor** | System |
+| **Main Flow** | 1. The frontend sends a request to the API Gateway.<br>2. The gateway determines whether the endpoint is public or protected.<br>3. If protected, the gateway validates the JWT token.<br>4. The gateway forwards the request to the corresponding microservice. |
+| **Use Case Diagram** | Not applicable for this requirement. |
+| **Postconditions** | All microservices are protected and accessed only through the gateway. |
+
+---
+
+## NFR-13 - Health monitoring endpoint
+
+| Field | Description |
+|------|-------------|
+| **ID** | NFR-13 |
+| **Requirement Name** | Health monitoring endpoint |
+| **Description** | Each microservice must expose a health check endpoint to allow infrastructure monitoring tools to verify service availability and operational status. |
+| **Preconditions** | The microservice must be deployed. |
+| **Actor** | System |
+| **Main Flow** | 1. A monitoring service sends a request to the health endpoint.<br>2. The microservice evaluates its internal status.<br>3. The system returns an HTTP status indicating service health. |
+| **Use Case Diagram** | Not applicable for this requirement. |
+| **Postconditions** | Service availability can be monitored automatically. |
+
+---
+
+## NFR-14 - Continuous integration and automated testing
+
+| Field | Description |
+|------|-------------|
+| **ID** | NFR-14 |
+| **Requirement Name** | Continuous integration and automated testing |
+| **Description** | The system must implement automated unit and integration testing with continuous integration pipelines to ensure code quality and prevent regression errors during development. |
+| **Preconditions** | The source code must be stored in a version control repository. |
+| **Actor** | System |
+| **Main Flow** | 1. A developer pushes code to the repository.<br>2. The CI pipeline executes automated tests.<br>3. The system reports build and test results. |
+| **Use Case Diagram** | Not applicable for this requirement. |
+| **Postconditions** | Code changes are validated automatically before deployment. |

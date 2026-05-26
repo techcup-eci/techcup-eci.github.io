@@ -376,3 +376,160 @@ There are the different user stories for the TECHCUP Football Platform. Each use
 | **Related requirement(s)** | NFR-02 Audit logging |
 | **Requirement explanation** | *Audit logging records relevant actions across all microservices and makes them available for administrative review.* |
 | **Acceptance criteria** | - The system logs: login, logout, user registration, profile updates, team creation/update/inactivation, tournament creation/update/inactivation, inscription changes, and match creation/update/deletion. - Each log entry includes: action type, user, and timestamp. - The administrator can consult and filter audit logs. - Logs are read-only and cannot be modified or deleted by any user. |
+
+
+---
+
+# Identity Microservice – Extended User Stories
+
+The following user stories correspond specifically to the Identity microservice evolution, Gateway integration, security alignment, role propagation, auditing, and deployment.
+
+---
+
+## US-24 - Login via Identity Microservice
+
+| Field | Description |
+| --- | --- |
+| **ID** | US-24 |
+| **Title** | Login via Identity microservice |
+| **Description** | *AS a registered user I WANT to log in using my email and password through the identity microservice SO THAT I can receive a JWT token and access the platform securely.* |
+| **Priority** | High |
+| **Priority explanation** | *JWT-based authentication is required for secure access across all microservices.* |
+| **Related requirement(s)** | FR-02 User authentication |
+| **Requirement explanation** | *Authentication validates credentials and returns a signed JWT containing user identity and role information.* |
+| **Acceptance criteria** | - Endpoint `POST /api/identity/login` returns a valid JWT. - The JWT includes email, role, and expiration time. - Invalid credentials return HTTP 400. - The system operates in stateless mode. |
+
+---
+
+## US-25 - Guest registration with coordinated profile creation
+
+| Field | Description |
+| --- | --- |
+| **ID** | US-25 |
+| **Title** | Coordinated guest registration |
+| **Description** | *AS a guest I WANT to create an account that automatically creates credentials in Identity and a profile in Users SO THAT I can participate in the tournament ecosystem.* |
+| **Priority** | High |
+| **Priority explanation** | *Cross-microservice consistency is required to maintain identity integrity.* |
+| **Related requirement(s)** | FR-01 User registration |
+| **Requirement explanation** | *Registration must create credentials in Identity and synchronize profile creation in Users service.* |
+| **Acceptance criteria** | - Endpoint `POST /api/identity/register` creates credentials in Identity. - A profile is created in Users service via WebClient. - The system returns a valid JWT after successful registration. - Integration errors are handled properly. |
+
+---
+
+## US-26 - API documentation via Swagger
+
+| Field | Description |
+| --- | --- |
+| **ID** | US-26 |
+| **Title** | API documentation available |
+| **Description** | *AS a developer I WANT to consult the Identity API through Swagger SO THAT I can understand and integrate available endpoints.* |
+| **Priority** | Medium |
+| **Priority explanation** | *API documentation improves integration and maintainability.* |
+| **Related requirement(s)** | NFR-03 API documentation |
+| **Requirement explanation** | *OpenAPI documentation must describe all public endpoints and protected routes.* |
+| **Acceptance criteria** | - Swagger UI is accessible. - Protected routes include Bearer token configuration. - Identity service is aggregated into Gateway Swagger documentation. |
+
+---
+
+## US-27 - Access Identity via Gateway
+
+| Field | Description |
+| --- | --- |
+| **ID** | US-27 |
+| **Title** | Authentication through API Gateway |
+| **Description** | *AS a user I WANT to authenticate through the API Gateway without knowing the internal port of Identity SO THAT system architecture remains abstracted and secure.* |
+| **Priority** | High |
+| **Priority explanation** | *Gateway centralizes traffic and improves security and scalability.* |
+| **Related requirement(s)** | FR-23 Gateway routing |
+| **Requirement explanation** | *All authentication traffic must pass through the Gateway at port 8080.* |
+| **Acceptance criteria** | - Gateway routes `/api/identity/**` correctly. - CORS configuration allows frontend access. - Errors are properly propagated to frontend. |
+
+---
+
+## US-28 - Persistent authenticated session
+
+| Field | Description |
+| --- | --- |
+| **ID** | US-28 |
+| **Title** | Persistent session after reload |
+| **Description** | *AS an authenticated user I WANT to remain logged in after refreshing the page SO THAT I do not need to authenticate repeatedly.* |
+| **Priority** | High |
+| **Priority explanation** | *Improves user experience and session continuity.* |
+| **Related requirement(s)** | FR-24 Token validation |
+| **Requirement explanation** | *Gateway must validate JWT and frontend must persist token securely.* |
+| **Acceptance criteria** | - Endpoint `GET /api/identity/me` validates token. - Gateway AuthFilter verifies JWT. - Token is stored in localStorage. - HTTP 401 and 403 are handled consistently. |
+
+---
+
+## US-29 - Secure logout
+
+| Field | Description |
+| --- | --- |
+| **ID** | US-29 |
+| **Title** | Secure logout |
+| **Description** | *AS an authenticated user I WANT to log out securely SO THAT my session is properly terminated and audited.* |
+| **Priority** | Medium |
+| **Priority explanation** | *Ensures traceability and session termination integrity.* |
+| **Related requirement(s)** | NFR-02 Audit logging |
+| **Requirement explanation** | *Logout must generate an audit record.* |
+| **Acceptance criteria** | - Endpoint `POST /api/identity/logout` exists. - Logout action is logged in audit registry. - Frontend removes stored JWT. |
+
+---
+
+## US-30 - Role update by administrator
+
+| Field | Description |
+| --- | --- |
+| **ID** | US-30 |
+| **Title** | Change user role |
+| **Description** | *AS an administrator I WANT to update a user's role SO THAT access permissions are dynamically controlled.* |
+| **Priority** | High |
+| **Priority explanation** | *Role control is essential for RBAC enforcement.* |
+| **Related requirement(s)** | NFR-01 Role-based access control |
+| **Requirement explanation** | *Role updates must be restricted to ADMIN users and audited.* |
+| **Acceptance criteria** | - Endpoint `PATCH /users/{id}/role` is protected. - Only ADMIN can perform role changes. - Role changes are logged in audit records. |
+
+---
+
+## US-31 - Dashboard redirection based on role
+
+| Field | Description |
+| --- | --- |
+| **ID** | US-31 |
+| **Title** | Role-based redirection |
+| **Description** | *AS a user I WANT to be redirected to a dashboard according to my role AFTER login SO THAT I immediately access relevant features.* |
+| **Priority** | Medium |
+| **Priority explanation** | *Improves usability and separation of concerns.* |
+| **Related requirement(s)** | FR-25 Role-based routing |
+| **Requirement explanation** | *Frontend routing must interpret role from JWT.* |
+| **Acceptance criteria** | - After login, frontend decodes JWT. - User is redirected according to role. - Redirection logic is role-dependent. |
+
+---
+
+## US-32 - Propagate identity downstream
+
+| Field | Description |
+| --- | --- |
+| **ID** | US-32 |
+| **Title** | Propagate identity headers |
+| **Description** | *AS a microservice I WANT to receive authenticated user identity from the Gateway SO THAT I can apply authorization rules consistently.* |
+| **Priority** | High |
+| **Priority explanation** | *Maintains distributed security consistency.* |
+| **Related requirement(s)** | FR-26 Identity propagation |
+| **Requirement explanation** | *Gateway must inject user identity headers into downstream requests.* |
+| **Acceptance criteria** | - Gateway injects `X-User-Email` header. - Gateway injects `X-User-Role` header. - Downstream services consume headers for authorization. |
+
+---
+
+## US-33 - Consult audit logs
+
+| Field | Description |
+| --- | --- |
+| **ID** | US-33 |
+| **Title** | Audit log consultation |
+| **Description** | *AS an administrator I WANT to review authentication and security-related logs SO THAT I can monitor system activity and detect anomalies.* |
+| **Priority** | Medium |
+| **Priority explanation** | *Audit ensures traceability and accountability.* |
+| **Related requirement(s)** | NFR-02 Audit logging |
+| **Requirement explanation** | *System must log login, logout, registration, and role changes.* |
+| **Acceptance criteria** | - Login, logout, and register events are logged. - Role changes are logged with timestamp and actor. - Logs are read-only. - Administrator can consult audit records. |
