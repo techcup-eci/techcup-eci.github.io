@@ -11,7 +11,7 @@ This section explains how the **Identity Service** and the **API Gateway (Orches
 
 The following diagram shows the containers that make up both services and their relationships with the rest of the microservices and the frontend.
 
-![Container diagram](contIdeApi/techcup_container_diagram.svg)
+![Container diagram](/contIdeApi/techcup_container_diagram.svg)
 
 ---
 
