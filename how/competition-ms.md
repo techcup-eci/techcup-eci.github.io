@@ -41,11 +41,11 @@ This section explains how the **Competition Service** was built and how it fits 
 
 The class diagram used for the models is the following:
 
-![Class diagram](/assets/images/competition-ms/class_diagram.png)
+![Class diagram](/assets/images/competition-ms/class-diagram-competition.png)
 
 The entity-relation diagram used for JPA is the following:
 
-![Entity-relation diagram](/assets/images/competition-ms/entity_relation_diagram.png)
+![Entity-relation diagram](/assets/images/competition-ms/entity-relation-competition.png)
 
 ---
 
@@ -141,3 +141,4 @@ The API Gateway injects authentication headers (`X-User-Id`, `X-User-Role`) into
 SCHEDULED ──► IN_PROGRESS ──► FINISHED
       │
       └──► CANCELLED
+```

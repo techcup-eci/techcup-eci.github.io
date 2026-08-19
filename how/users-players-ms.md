@@ -50,13 +50,13 @@ The class diagram used for the models is the following:
 
 The container diagram used for the architecture is the following:
 
-![alt text](context-diagram-users.png)
+![Container diagram](/assets/images/users-ms/context-diagram-users.png)
 
-![Container diagram](../images/Diagrama%20contenedores%20Usuers%20and%20Players.png)
 
 The entity-relation diagram used for JPA is the following:
 
-![Entity-relation diagram](../images/Diagrama%20ER%20users%20and%20players.png)
+![Entity-relation diagram](/assets/images/users-ms/relation-entity-users.png)
+
 
 ---
 
